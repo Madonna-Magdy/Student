@@ -1,0 +1,24 @@
+@media (min-width: 769px){
+    .webview{
+        display: block ;
+    }
+    .mobview{
+        display: none  ;
+    }
+}
+
+
+
+@media (max-width: 768px){
+    .webview{
+        display: none ;
+    }
+    .mobview{
+        display: block  ;
+    }
+}
+
+.page-content {
+    justify-items: center;
+
+}

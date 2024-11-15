@@ -1,0 +1,67 @@
+<!-- Dashboard Counts Section-->
+<header class="page-header">
+  <div class="container-fluid">
+    <h2 class="client-title">
+      Students
+      <a class="add-client" [routerLink]="['add']">Add</a>
+    </h2>
+  </div>
+</header>
+
+<div class="breadcrumb-holder">
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item active"> Students </li>
+  </ul>
+</div>
+<section class="projects">
+  <div class="container-fluid">
+    <div class="project bg-white has-shadow" *ngIf="students?.length === 0">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="unfound_data p-3 mt-2 mb-3 animated fadeInDown">
+            <i class="fa fa-table"></i> <i class="fa fa-exclamation"></i>
+            <b>No Data Found</b>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card" *ngIf=" students && students.length > 0">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-center table-hover mt-4">
+                  <thead>
+                    <tr>
+                      <th class="mer-date">Name</th>
+                      <th class="mer-date">Mobile Number</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of students">
+                      <td class="mer-salesRep unicode-plain-text"> {{item.name}}</td>
+                      <td class="mer-salesRep">{{item.mobileNumber}}</td>
+                      <td class="mer-salesRep">
+                        <a class="btn btn-sm btn-primary" [routerLink]="['edit', item.id]">
+                          Edit
+                        </a>
+                        <a class="btn btn-sm btn-danger ml-2" (click)=delete(item.id)>
+                          Delete
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
